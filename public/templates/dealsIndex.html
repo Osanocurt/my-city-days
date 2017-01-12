@@ -1,0 +1,12 @@
+<section>
+  <ul class="row">
+    <li ng-repeat="deal in dealsIndex.all" class="four columns">
+      <a ui-sref="dealsShow({ id: deal._id })">
+        <img ng-src="{{ deal.posterImage }}" class="u-max-full-width">
+        <h2>{{ deal.title }}</h2>
+        <h4>{{ deal.director }}</h4>
+        <p>{{ deal.releaseDate | date: 'd MMM yyyy' }}</p>
+      </a>
+    </li>
+  </ul>
+</section>

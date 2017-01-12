@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="cityApp">
+  <head>
+    <meta charset="utf-8">
+    <title>My-City-Days</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-resource.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/satellizer/0.15.5/satellizer.min.js"></script>
+    <script src="/js/app.js" charset="utf-8"></script>
+    <script src="/js/controllers/deals.js" charset="utf-8"></script>
+    <script src="/js/controllers/auth.js" charset="utf-8"></script>
+    <script src="/js/controllers/main.js" charset="utf-8"></script>
+    <script src="/js/models/deal.js" charset="utf-8"></script>
+  </head>
+  <body ng-controller="MainController as main">
+    <header class="container">
+      <h1>MY-CITY-DAYS</h1>
+      <nav>
+        <ul>
+          <li><a ui-sref="dealsIndex" ui-sref-active="active">Deals</a></li>
+          <li ng-if="main.isLoggedIn()"><a ui-sref="dealsNew" ui-sref-active="active">New Deal</a></li>
+          <li ng-if="!main.isLoggedIn()"><a ui-sref="register" ui-sref-active="active">Register</a></li>
+          <li ng-if="!main.isLoggedIn()"><a ui-sref="login" ui-sref-active="active">Login</a></li>
+          <li ng-if="main.isLoggedIn()"><a href="#" ng-click="main.logout()">Logout</a></li>
+        </ul>
+      </nav>
+      <p ng-if="main.message">{{ main.message }}</p>
+    </header>
+    <main class="container" ui-view>
+
+    </main>
+  </body>
+</html>
