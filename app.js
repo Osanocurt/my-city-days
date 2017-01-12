@@ -1,20 +1,17 @@
 const express = require('express');
 const morgan = require('morgan');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
 
 const app = express();
 const port = process.env.PORT || 8000;
-const router = require('./config/routes');
-const db = require('./config/db');
 
-mongoose.connect(db.uri);
 
-app.use(morgan('dev'));
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.set("view engine", "ejs");
+app.set("views", `${__dirname}/views`);
 
 app.use(express.static(`${__dirname}/public`));
-app.use(router);
+app.use(morgan('dev'));
 
-app.listen(port, () => console.log(`Express is listening on port ${port}`));
+app.get('/', (req, res) => res.render('index'));
+
+
+app.listen(port, () => console.log(`Running on port: ${port}`));
