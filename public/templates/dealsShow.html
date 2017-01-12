@@ -1,9 +1,0 @@
-<section>
-  <img ng-src="{{ dealsShow.deal.posterImage }}">
-  <h2>{{ dealsShow.deal.title }}</h2>
-  <h4>{{ dealsShow.deal.director }}</h4>
-  <p>{{ dealsShow.deal.releaseDate | date: 'd MMM yyyy' }}</p>
-
-  <a ng-if="main.isLoggedIn()" ui-sref="dealsEdit({ id: dealsShow.deal._id })" class="button">Edit</a>
-  <button ng-if="main.isLoggedIn()" ng-click="dealsShow.delete()">Delete</button>
-</section>

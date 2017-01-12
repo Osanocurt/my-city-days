@@ -9,7 +9,7 @@ function register(req, res){
     const payload = { _id: user._id, username: user.username };
     const token = jwt.sign(payload, secret, { expiresIn: 60*60*24 });
 
-    return res.status(201).json({
+    return res.status(200).json({
       message: `Welcome ${user.username}!`,
       user,
       token
@@ -28,7 +28,7 @@ function login(req, res){
     const token = jwt.sign(payload, secret, { expiresIn: 60*60*24 });
 
     return res.status(200).json({
-      message: 'Welcome back.',
+      message: `Welcome back, ${user.username}`,
       user,
       token
     });
