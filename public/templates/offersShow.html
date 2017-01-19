@@ -1,0 +1,9 @@
+<section>
+  <img ng-src="{{ offersShow.offers.posterImage }}">
+  <h2>{{ offersShow.offer.title }}</h2>
+  <h4>{{ offersShow.offer.brand }}</h4>
+  <p>{{ offersShow.offer.player }}</p>
+
+  <a ng-if="main.isLoggedIn()" ui-sref="offersEdit({ id: offersShow.offers._id})" >Edit</a>
+  <button ng-if="main.isLoggedIn()" ng-click="offersShow.delete()">Delete</button>
+</section>

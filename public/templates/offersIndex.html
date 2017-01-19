@@ -1,0 +1,12 @@
+<section>
+  <ul class="row">
+    <li ng-repeat="offer in offersIndex.all" class="four columns">
+      <a ui-sref="offersShow({ id: offer._id })">
+        <img ng-src="{{ offer.posterImage }}" class="u-max-full-width">
+        <h2>{{ offer.title }}</h2>
+        <h4>{{ offer.brand }}</h4>
+        <p>{{ offer.player }}</p>
+      </a>
+    </li>
+  </ul>
+</section>
